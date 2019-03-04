@@ -1,0 +1,60 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+	color: grey;
+	margin-bottom: 50px;
+}
+
+img,
+span {
+	display: inline-block;
+}
+
+.container {
+	position: relative;
+	padding-bottom: 25px;
+	margin-top: 25px;
+	border-bottom: 1px solid lightgrey;
+}
+
+.inner {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	margin-left: 10px;
+}
+
+.date {
+	color: red;
+	font-size: 22px;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-weight: 900;
+	font-size: 32px;
+}
+
+h3 {
+	font-weight: 900;
+	font-size: 23px;
+}
+
+p {
+	font-size: 20px;
+	margin-bottom: 15px;
+}
+
+.extra {
+	font-size: 20px;
+	margin-right: 22px;
+}
+
+i {
+	font-size: 25px;
+}
