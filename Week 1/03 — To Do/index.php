@@ -1,66 +1,51 @@
-<?php 
-    $tasks = [
+<?php
+    $toDo = [
         [
-            "beschrijving" => "Post screenshot to Dribbble",
-            "uren" => "6",
-            "categorie" => "School"
+            "description" => "Meeting klant",
+            "time" => "2",
+            "category" => "Werk"
         ],
         [
-            "beschrijving" => "Publish Website",
-            "uren" => "1",
-            "categorie" => "Thuis"
+            "description" => "PHP oefeningen afwerken",
+            "time" => "2",
+            "category" => "School"
         ],
         [
-            "beschrijving" => "Launch Mac Version",
-            "uren" => "4",
-            "categorie" => "Werk"
+            "description" => "Huishoudelijke taken",
+            "time" => "1",
+            "category" => "Thuis"
         ],
         [
-            "beschrijving" => "Release iPhone Update",
-            "uren" => "8",
-            "categorie" => "Werk"
+            "description" => "Website klant ontwerpen",
+            "time" => "6",
+            "category" => "Werk"
         ],
         [
-            "beschrijving" => "Organise Launch Party",
-            "uren" => "1",
-            "categorie" => "School"
+            "description" => "Winkelen",
+            "time" => "1",
+            "category" => "Thuis"
         ]
-];
-
-?><!DOCTYPE html>
+    ]
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ToDo</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>To Do</title>
 </head>
 <body>
-
-    <div class="feed">
-        <?php foreach($tasks as $task): ?>
-            <div 
-            <?php 
-                if($task['uren'] == '1') {
-                    echo 'class="green"';
-                } 
-                
-                elseif($task['uren'] > '1' && $task['uren'] < '5') {
-                    echo 'class="orange"';
-                }
-
-                elseif($task['uren'] > '5') {
-                    echo 'class="red"';
-                }
-                ?> 
-                class="task">
-                <p><strong><?php echo $task['beschrijving']; ?></strong></p>
-                <p class="categorie"><?php echo $task['categorie']; ?></p>
-            </div>
-        <?php endforeach; ?>
-    </div>
-    
+    <header>
+        <h1>To Do App</h1>
+    </header>
+    <main>
+        <div class="post__toDo">
+        <ul>
+            <?php include_once("list.inc.php"); ?>
+        </ul>
+        </div>
+    </main>
 </body>
 </html>

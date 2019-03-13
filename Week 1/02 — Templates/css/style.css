@@ -1,0 +1,41 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header{
+    width: 100%;
+    height: 55px;
+    background-color: #1B1025;
+}
+.navLink{
+    height: 55px;
+    color: #fff;
+    text-decoration: none;
+    
+    font-size: 1.4em;
+    margin-left: 20px;
+    line-height: 55px;
+}
+h1{
+    font-size: 2em;
+}
+p{
+    padding-left: 50px;
+    padding-bottom: 25px; 
+}
+.active{
+    color: red;
+}
+form{
+    padding-left: 50px;
+    padding-bottom: 25px;
+}
+#message{
+    height: 80px;
+}
+footer{
+    height: 60px;
+    background-color: #1B1025;
+    color: #fff;
+    text-align: center;
+    line-height: 60px;
+}

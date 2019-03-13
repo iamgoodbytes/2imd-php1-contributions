@@ -1,11 +1,23 @@
-<?php 
-    $page = $_SERVER['SCRIPT_NAME'];
-    $name = basename($page);
+<?php
+    $page = basename($_SERVER['SCRIPT_NAME']);
+    if($page == "index.php"){
 
-    echo $name;
 ?>
-
-<nav>
-        <a <?php if($name == 'index.php') {echo 'class="current"';} ?> href="index.php">Home</a>
-        <a <?php if($name == 'contact.php') {echo 'class="current"';} ?> href="contact.php">Contact</a>
-</nav>
+    <header>
+        <nav>
+            <a class="navLink active" href="index.php">Home</a>
+            <a class="navLink" href="contact.php">Contact</a>
+        </nav>
+    </header>
+<?php
+    }elseif ($page == "contact.php"){
+?>
+    <header>
+    <nav>
+        <a class="navLink" href="index.php">Home</a>
+        <a class="navLink active" href="contact.php">Contact</a>
+    </nav>
+    </header>
+<?php
+    }
+?>

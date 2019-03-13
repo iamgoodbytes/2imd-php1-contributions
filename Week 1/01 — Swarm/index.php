@@ -1,61 +1,53 @@
-<?php 
-    $posts = [
-        [
-            "username" => "Jesse",
-            "place" => "Assembly 3.0",
-            "adress" => "San Francisco, CA"
-        ],
-        [
-            "username" => "Michal",
-            "place" => "Voxer",
-            "adress" => "San Francisco, CA"
-        ],
-        [
-            "username" => "Petr",
-            "place" => "ROXY/NoD",
-            "adress" => "Prague, Czech Republic"
-        ],
-        [
-            "username" => "Jaroslav",
-            "place" => "Brnu hlavni nadrazi",
-            "adress" => "Brno, Czech Republic"
-        ],
-        [
-            "username" => "Jesse",
-            "place" => "The Mill",
-            "adress" => "San Francisco, CA"
+<?php
+        $checkIns = [
+            [
+                "username" => "Wesley Wijsen",
+                "place" => "Pool Planet",
+                "address" => "F.Rooseveltplaats"
+            ],
+            [
+                "username" => "Iemand Anders",
+                "place" => "StarBucks",
+                "address" => "Astridplein"
+            ],
+            [
+                "username" => "Boris Beer",
+                "place" => "McDonalds",
+                "address" => "Operaplein"
+            ]
         ]
-];
-
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Swarm</title>
     <link rel="stylesheet" href="style.css">
+    <title>Swarm</title>
 </head>
 <body>
-
-    <?php include_once('header.inc.php');?>
-
-    <div class="friends">
-        <?php foreach($posts as $post): ?>
-            <div class="post">
-                <div class="flex">
-                    <div class="picture"></div>
-                    <div class="information">
-                        <p><strong><?php echo $post['username']; ?></strong></p>
-                        <p class= "place"><?php echo $post['place']; ?></p>
-                        <p><?php echo $post['adress']; ?></p>
-                    </div>
-                </div>
+    <?php include_once('head.inc.php') ?>
+    <main>
+        <?php
+            foreach($checkIns as $c):
+        ?>
+        <div class="checkIn">
+            
+            <img src="https://fakeimg.pl/75x75/" class="profPic">
+            <div class="dataContainer">
+                <span class="name"><strong><?php echo $c["username"] ?></strong></span><br>
+                <span class="place"><?php echo $c["place"] ?></span><br>
+                <span class="address"><?php echo $c["address"] ?></span><br>
             </div>
-        <?php endforeach; ?>
-    </div>
-
+            
+        </div>
+        
+        <hr>
+        <?php
+            endforeach;
+        ?>
+    </main>
     <?php include_once('footer.inc.php') ?>
-    
+
 </body>
 </html>
