@@ -11,5 +11,5 @@ No problem, je kan bestaande oplossingen van medestudenten verder verbeteren en 
 In plaats van dubbele oplossingen bij te dragen krijgen we op die manier een mooie collectie oplossingen die jullie samen hebben opgebouwd.
 
 ## Lijst met contributors
-🔥 https://github.com/siebedc2  
+🔥🔥 https://github.com/siebedc2  
 🔥 https://github.com/LarsPauwels
