@@ -7,9 +7,10 @@ if (!empty($_GET["id"])) {
   header("Location: index.php");
 }
 
+$id = $conn->real_escape_string($id);
 $sql = "SELECT *, A.title AS aTitle
         FROM albums A, artists AR
-        WHERE A.artist_id = AR.id AND AR.id = 1";
+        WHERE A.artist_id = AR.id AND AR.id = $id";
 $result = mysqli_query($conn, $sql);
 
 ?><!DOCTYPE html>

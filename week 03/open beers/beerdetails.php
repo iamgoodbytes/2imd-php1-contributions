@@ -9,6 +9,7 @@
 	require_once("connection.php");
 
 	function getCompanyInfo($conn, $id) {
+		$id = $conn->real_escape_string($id);
     	$sql = "SELECT * FROM breweries WHERE id = $id";
     	$result = $conn->query($sql);
 
@@ -41,8 +42,6 @@
 		           	echo "</h5>";
 	            }
 	        }
-	    } else {
-	        echo "0 results";
 	    }
     }
 
@@ -54,10 +53,17 @@
 	        while($row = $result->fetch_assoc()) {
 	            return $row["name"];
 	        }
-	    } else {
-	        echo "0 results";
 	    }
     }
+
+    $sql = "SELECT *, breweries.name AS brewery,
+			beers.name AS beer,
+			beers.descript AS beerDesc
+			FROM breweries, beers, categories, styles 
+			WHERE  beers.brewery_id = breweries.id 
+			AND beers.cat_id = categories.id 
+			AND beers.style_id = styles.id AND beers.brewery_id = $id";
+	$result = $conn->query($sql);
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -88,15 +94,6 @@
 
 	<div class="padding">
 	<?php
-		$sql = "SELECT *, breweries.name AS brewery,
-				beers.name AS beer,
-				beers.descript AS beerDesc
-				FROM breweries, beers, categories, styles 
-				WHERE  beers.brewery_id = breweries.id 
-				AND beers.cat_id = categories.id 
-				AND beers.style_id = styles.id AND beers.brewery_id = $id";
-	    $result = $conn->query($sql);
-
 		if ($result->num_rows > 1) {
 	        while($row = $result->fetch_assoc()) {
 	?>
