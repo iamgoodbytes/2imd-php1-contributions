@@ -1,7 +1,5 @@
 <?php
-    session_start();
-    require_once("classes/Artist.class.php");
-    require_once("classes/Album.class.php");
+    require_once("bootstrap.php");
     if(!isset($_SESSION["user"])){
         header("location: login.php");
     }

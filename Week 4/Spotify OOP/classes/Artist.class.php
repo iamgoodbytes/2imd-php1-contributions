@@ -2,7 +2,7 @@
 class Artist{
     public static function getArtists(){
         try{
-            $conn = new PDO("mysql:host=localhost;dbname=spotify_faker", "root", "root");
+            $conn = Db::getInstance();
             $statement = $conn->prepare("SELECT * FROM artists");
             $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -14,7 +14,7 @@ class Artist{
     }
     public static function getArtistById($id){
         try{
-            $conn = new PDO("mysql:host=localhost;dbname=spotify_faker", "root", "root");
+            $conn = Db::getInstance();
             $statement = $conn->prepare("SELECT * FROM artists WHERE id = :id LIMIT 1;");
             $statement->bindParam(":id", $id);
             $statement->execute();

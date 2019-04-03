@@ -21,7 +21,7 @@ class Security{
     }
     public static function emailExists($email){
         try{
-            $conn = new PDO("mysql:host=localhost;dbname=spotify_faker", "root", "root");
+            $conn = Db::getInstance();
             $statement = $conn->prepare("SELECT * FROM users WHERE email = :email;");
             $statement->bindParam(":email", $email);
             $statement->execute();

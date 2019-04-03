@@ -1,5 +1,4 @@
 <?php 
-    require_once("classes/Security.class.php");
     class User{
         private $email;
         private $password;
