@@ -1,7 +1,6 @@
 <?php 
-    session_start();
-    require_once("classes/User.class.php");
-    if(isset($_SESSION["user"])){
+    require_once("bootstrap.php");
+    if(isset($_SESSION["id"])){
         header("location: index.php");
     }
     

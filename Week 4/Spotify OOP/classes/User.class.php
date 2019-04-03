@@ -3,7 +3,7 @@
         private $email;
         private $password;
         private $passwordConfirmation;
-
+        private $id;
         /**
          * Get the value of email
          */ 
@@ -71,7 +71,7 @@
             } else if(!Security::isPasswordSecure($this->password)){
                 $err = "Wachtwoord moet minstens 8 tekens hebben";
                 return $err;
-            } else if(!Security::emailVerify($this->email)){
+            } else if(!Security::isValidEmail($this->email)){
                 $err = "Ongeldig e-mail adres";
                 return $err;
             } else if(Security::emailExists($this->email)){
@@ -85,7 +85,7 @@
                     $statement->bindParam(":email", $this->email);
                     $statement->bindParam(":password", $password);
                     $result = $statement->execute();
-                    $this->login();
+                    $this->canLogin();
                 }
                 catch( Throwable $t ){
                     return $t;
@@ -93,11 +93,11 @@
             }
         }
         public function login(){
-            $_SESSION["user"] = $this->email;
+            $_SESSION["id"] = $this->email;
             header("location: index.php");
         }
         public function canLogin(){
-            if(Security::emailVerify($this->email)){
+            if(Security::isValidEmail($this->email)){
                 try{
                     $conn = new PDO("mysql:host=localhost;dbname=spotify_faker", "root", "root");
                     $statement = $conn->prepare("SELECT password FROM users WHERE email= :email;");
@@ -105,6 +105,7 @@
                     $statement->execute();
                     $result = $statement->fetch(PDO::FETCH_ASSOC);
                     if(password_verify($this->password, $result['password'])){
+                        $this->id = $result['id'];
                         $this->login();
                     } else{
                         $err = "Foute logingegevens!";

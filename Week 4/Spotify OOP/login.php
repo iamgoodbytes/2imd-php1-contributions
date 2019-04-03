@@ -1,6 +1,8 @@
 <?php 
-    session_start();
-    require_once("classes/User.class.php");
+    require_once("bootstrap.php");
+    if(isset($_SESSION["id"])){
+        header("location: index.php");
+    }
     if(!empty($_POST)){
         $user = new User;
         $user->setEmail($_POST["email"])->setPassword($_POST["password"]);

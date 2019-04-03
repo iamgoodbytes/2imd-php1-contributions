@@ -1,6 +1,6 @@
 <?php
     require_once("bootstrap.php");
-    if(!isset($_SESSION["user"])){
+    if(!isset($_SESSION["id"])){
         header("location: login.php");
     }
     if(!empty($_GET["id"])){
