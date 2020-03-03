@@ -1,7 +1,11 @@
-<?php 
-
+<?php
+    // session must start first to destroy it 
     session_start();
-    unset($_SESSION["loggedin"]);  // where $_SESSION["nome"] is your own variable. if you do not have one use only this as follow **session_unset();**
-    header("Location: index.php");
-    
+    if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]){
+        session_destroy();
+        //remove cookie
+        setcookie("PHPSESSID", "", time() - 3600, "/");
+        //redirecht to login page
+        header("Location: login.php");
+    }
 ?>

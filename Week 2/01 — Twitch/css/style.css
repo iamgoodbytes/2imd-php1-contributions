@@ -36,6 +36,15 @@ h1
   padding: 1em;
 }
 
+.message
+{
+  background-color: #EFEEF1;
+  border: 1px solid rgb(40, 173, 13);
+  border-radius: 5px;
+  border-left-width: 5px;
+  padding: 1em;
+}
+
 .nav--login
 {
   padding: 0.3em;
